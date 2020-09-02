@@ -12,7 +12,7 @@ https://github.com/kimmobrunfeldt/git-hours
 
 # How To
 
-Navigate to a git project and pipe the result to estimator.py:
+Navigate to a git project and pipe the result of a `git log` command to `estimator.py`:
 ```bash
 git log --date=iso --pretty=format:'%at' | python3 estimator.py
 ```

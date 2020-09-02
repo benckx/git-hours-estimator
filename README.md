@@ -4,9 +4,10 @@
 
 # About 
 
-Estimate the amount of work spent on a project based on the git commits timestamp.
+Estimate the amount of work spent on a project based on the git commits timestamps.
 
-Algo is based on this (but I couldn't make it work):
+Algorithm is based on this (but I couldn't make it work):
+
 https://github.com/kimmobrunfeldt/git-hours
 
 # How To

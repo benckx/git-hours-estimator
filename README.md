@@ -10,7 +10,7 @@ Algorithm is based the following repo, but I couldn't run it: https://github.com
 
 # How To
 
-Navigate to a git project and pipe the result of a `git log` command to `estimator.py`:
+Navigate to a git project and pipe the result of this `git log` command to `estimator.py`:
 ```bash
 git log --date=iso --pretty=format:'%at' | python3 estimator.py
 ```

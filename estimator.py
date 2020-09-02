@@ -1,7 +1,6 @@
 import sys
 
 one_hour_in_sec = 60 * 60
-threshold = 2 * one_hour_in_sec
 
 timestamps = []
 
@@ -9,28 +8,32 @@ for line in sys.stdin:
     timestamp = int(line.replace('\n', ''))
     timestamps.append(timestamp)
 
-total_time_sec = 0
 
-timestamps.sort()
-previous_timestamp = timestamps[0]
-current_session = []
-nbr_of_sessions = 0
+def estimate(timestamps, threshold):
+    total_time_sec = 0
 
-for x in range(1, len(timestamps)):
-    delta = timestamps[x] - previous_timestamp
-    previous_timestamp = timestamps[x]
+    timestamps.sort()
+    previous_timestamp = timestamps[0]
+    current_session = []
 
-    if delta > threshold:
-        if len(current_session) >= 2:
-            start = current_session[0]
-            end = current_session[len(current_session) - 1]
-            duration = end - start
-            total_time_sec += duration
-            current_session = []
-        nbr_of_sessions += 1
-    else:
-        current_session.append(timestamps[x])
+    for x in range(1, len(timestamps)):
+        delta = timestamps[x] - previous_timestamp
+        previous_timestamp = timestamps[x]
 
-print(total_time_sec / one_hour_in_sec)
+        if delta > threshold:
+            if len(current_session) >= 2:
+                start = current_session[0]
+                end = current_session[len(current_session) - 1]
+                duration = end - start
+                total_time_sec += duration
+                current_session = []
+        else:
+            current_session.append(timestamps[x])
+
+    return total_time_sec
+
+
+print(estimate(timestamps, one_hour_in_sec) / one_hour_in_sec)
+print(estimate(timestamps, 3 * one_hour_in_sec) / one_hour_in_sec)
 
 sys.stdout.flush()

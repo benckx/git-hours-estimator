@@ -21,7 +21,7 @@ def estimate(timestamps, threshold):
         delta = timestamps[x] - previous_timestamp
         previous_timestamp = timestamps[x]
 
-        if delta > threshold:
+        if delta >= threshold:
             if len(current_session) >= 2:
                 start = current_session[0]
                 end = current_session[len(current_session) - 1]

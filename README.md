@@ -4,7 +4,7 @@
 
 # About 
 
-Estimate the amount of work spent on a project based on the git commits timestamps.
+Estimate the amount of work spent on a project based on the git commit timestamps.
 
 Algorithm is based the following repo, but I couldn't run it: https://github.com/kimmobrunfeldt/git-hours
 

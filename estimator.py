@@ -48,8 +48,10 @@ def report_estimate(threshold):
     print("amount of work (hours):", nbr_of_work_hours)
     print("amount of work (days):", nbr_of_work_days)
     print("on a period of (days):", nbr_of_days_period)
-    print("nbr of hours/days on this project:", nbr_of_work_hours / nbr_of_days_period)
-
+    try:
+        print("nbr of hours/days on this project:", nbr_of_work_hours / nbr_of_days_period)
+    except ZeroDivisionError:
+        print("nbr of hours/days on this project: *** Divided by zero *** ", 0)
 
 report_estimate(one_hour_in_sec)
 report_estimate(2 * one_hour_in_sec)
